@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="shortcut icon" href="favicon.png">
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <script src="./js/main.js"></script>
 </head>
 <body>
 <header>
@@ -163,8 +162,17 @@
                     <p class="card-source">Холодильник</p>
                     <p class="card-time">17:23, Сегодня</p>
                 </div>
-                <p class="card-description card-description_big description_critical">Кажется, в холодильнике заканчивается молоко. Вы хотите добавить его в список покупок?</p>
-                <div class="buttons-wrap"><button class="button button_yellow" type="button">Да</button><button class="button">Нет</button></div>
+                <p id="desc" class="card-description card-description_big description_critical">Кажется, в холодильнике заканчивается молоко. Вы хотите добавить его в список покупок?</p>
+                <div id="purchase" style="display: none;">
+                    <div class="purchase-list-wrap">
+                        <p class="card-description card-description_big description_critical">Список покупок:</p>
+                        <ol class="purchase-list">
+                          <li class="purchase-list__item">Хлеб</li>
+                          <li class="purchase-list__item">Молоко</li>
+                        </ol>
+                    </div>
+                </div>
+                <div id="btns" class="buttons-wrap"><button class="button button_yellow" type="button">Да</button><button class="button">Нет</button></div>
             </div>
             <div class="card card_size_s">
                 <div class="card-heading">
@@ -222,4 +230,7 @@
         <a class="footer-menu__link" href="./assets/license.pdf" target="blank">Лицензия</a>
     </menu>
 </footer>
+<script>
+let btns=document.querySelector("#btns");btns.querySelector(".button_yellow").onclick=(()=>{document.querySelector("#purchase").style.display="block",document.querySelector("#desc").style.display="none",btns.style.display="none"}),document.querySelector(".header-menu__switcher").onclick=(()=>{document.querySelector(".header-menu").classList.toggle("header-menu_active")});
+</script>
 </body></html>
